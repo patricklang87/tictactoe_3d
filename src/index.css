@@ -12,12 +12,16 @@ code {
     monospace;
 }
 
-
-
 #slider {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media only screen and (max-width: 380px) {
+  #slider {
+    display: none;
+  }
 }
 
 input[type=range] {
@@ -36,6 +40,12 @@ footer {
   color: lightgray;
 }
 
+@media only screen and (max-width: 380px) {
+  footer {
+    margin-top: 150px;
+  }
+}
+
 footer p {
   margin-right: 30px;
   margin-bottom: 0;
@@ -45,3 +55,5 @@ footer p {
 footer a {
   color: forestgreen;
 }
+
+

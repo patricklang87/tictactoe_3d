@@ -11,7 +11,7 @@ let initMouseY = null;
 const onMouseDown = (e) => {
     console.log((e.touches) ? true : false);
     console.log(document.getElementsByClassName('cube')[0].style["transform"]);
-
+    console.log("isSliderClicked: ", isSliderClicked);
     let x = (e.touches) ? e.touches[0].clientX : e.clientX;
     let y = (e.touches) ? e.touches[0].clientY : e.clientY;
     initMouseX = x;
@@ -20,6 +20,7 @@ const onMouseDown = (e) => {
 }
 
 const onMouseMoving = (e) => {
+  
     let cubes = document.getElementsByClassName('cube');
     for (let cube of cubes) {
         if (mouseIsDown === true) {
@@ -54,6 +55,9 @@ const mouseDownSlider = () => {
   document.getElementsByTagName('HTML')[0].removeEventListener('mousedown', onMouseDown);
   document.getElementsByTagName('HTML')[0].removeEventListener('mousemove', onMouseMoving);
   document.getElementsByTagName('HTML')[0].removeEventListener('mouseup', onMouseUp);
+  document.getElementsByTagName('HTML')[0].removeEventListener('touchstart', onMouseDown);
+  document.getElementsByTagName('HTML')[0].removeEventListener('touchend', onMouseMoving);
+  document.getElementsByTagName('HTML')[0].removeEventListener('touchmove', onMouseUp);
 }
 
 const mouseUpSlider = () => {
@@ -61,13 +65,17 @@ const mouseUpSlider = () => {
   document.getElementsByTagName('HTML')[0].addEventListener('mousedown', onMouseDown);
   document.getElementsByTagName('HTML')[0].addEventListener('mousemove', onMouseMoving);
   document.getElementsByTagName('HTML')[0].addEventListener('mouseup', onMouseUp);
+  document.getElementsByTagName('HTML')[0].addEventListener('touchstart', onMouseDown);
+  document.getElementsByTagName('HTML')[0].addEventListener('touchend', onMouseMoving);
+  document.getElementsByTagName('HTML')[0].addEventListener('touchmove', onMouseUp);
+  
 }
 
 let id = null;
 const adjustSize = (e) => {
-  console.log()
   clearInterval(id);
   id = setInterval(frame, 5);
+  console.log("isSliderClicked: ", isSliderClicked);
   function frame() {
     if (isSliderClicked !== true) {
       clearInterval(id);
@@ -86,6 +94,9 @@ const adjustSize = (e) => {
 document.getElementById('slider').addEventListener('mousedown', mouseDownSlider);
 document.getElementById('slider').addEventListener('mouseup', mouseUpSlider);
 document.getElementById('slider').addEventListener('mousemove', adjustSize);
+document.getElementById('slider').addEventListener('touchstart', mouseDownSlider);
+document.getElementById('slider').addEventListener('touchend', mouseUpSlider);
+document.getElementById('slider').addEventListener('touchmove', adjustSize);
 document.getElementById('slider').addEventListener('click', changeDistance);
 document.getElementsByTagName('HTML')[0].addEventListener('mousedown', onMouseDown);
 document.getElementsByTagName('HTML')[0].addEventListener('mousemove', onMouseMoving);
