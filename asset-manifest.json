@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/tictactoe_3d/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/tictactoe_3d/static/js/main.91b0c7ff.chunk.js",
+    "main.js.map": "/tictactoe_3d/static/js/main.91b0c7ff.chunk.js.map",
+    "runtime-main.js": "/tictactoe_3d/static/js/runtime-main.b1c451d8.js",
+    "runtime-main.js.map": "/tictactoe_3d/static/js/runtime-main.b1c451d8.js.map",
+    "static/js/2.8cc96076.chunk.js": "/tictactoe_3d/static/js/2.8cc96076.chunk.js",
+    "static/js/2.8cc96076.chunk.js.map": "/tictactoe_3d/static/js/2.8cc96076.chunk.js.map",
+    "static/js/3.d056cb47.chunk.js": "/tictactoe_3d/static/js/3.d056cb47.chunk.js",
+    "static/js/3.d056cb47.chunk.js.map": "/tictactoe_3d/static/js/3.d056cb47.chunk.js.map",
+    "index.html": "/tictactoe_3d/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/tictactoe_3d/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.8cc96076.chunk.js.LICENSE.txt": "/tictactoe_3d/static/js/2.8cc96076.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/tictactoe_3d/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b1c451d8.js",
+    "static/js/2.8cc96076.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.91b0c7ff.chunk.js"
+  ]
+}
