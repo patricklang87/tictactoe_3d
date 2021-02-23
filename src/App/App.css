@@ -20,7 +20,13 @@
   pointer-events: none;
 }
 
-
+.reset {
+  text-align: center;
+  visibility: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
 
 .board {
   height: 100%;

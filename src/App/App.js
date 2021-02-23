@@ -84,7 +84,10 @@ export class App extends React.Component {
                     [[null, null, null], [null, null, null], [null, null, null]]],
         player1IsNext: true
     });
-    document.getElementsByTagName('BODY').style.backgroundColor = "white";
+    let sides = document.getElementsByClassName('side');
+    for (let side of sides) side.style.backgroundColor = "yellow";
+    document.getElementsByTagName('BODY')[0].style.backgroundColor = "white";
+    document.getElementsByClassName('reset')[0].style.visibility = "hidden";
   } 
 
   updateCube(z, y, x) {
@@ -93,7 +96,8 @@ export class App extends React.Component {
     let newCube = this.state.cubeState;
     newCube[z][y][x] = (this.state.player1IsNext) ? "player1" : "player2";
     console.log("newCube: ", newCube);
-    this.checkFoWinner();
+    let winner = this.checkFoWinner();
+    if (winner) document.getElementsByClassName('reset')[0].style.visibility = "visible";
     return newCube;
   }
 
@@ -121,6 +125,9 @@ export class App extends React.Component {
         <div className="wrapper" id="wrapper" >
           <div className="cube">
             {cube}
+          </div>
+          <div className="reset" onClick={this.reset}>
+            <p>Play Again</p>
           </div>
         </div>
     );
