@@ -16,9 +16,11 @@
   transform-style: preserve-3d;
   position: relative;
   margin: auto;
-  transform: rotateY(-30deg) rotateX(-30deg);
   pointer-events: none;
+  transform: rotate(30deg);
 }
+
+
 
 .reset {
   text-align: center;

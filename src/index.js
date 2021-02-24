@@ -4,34 +4,52 @@ import './index.css';
 import App from './App/App';
 import reportWebVitals from './reportWebVitals';
 
+const showRotation = () => {
+  console.log(document.getElementsByClassName('cube')[0].style["transform"]);
+}
+
 let mouseIsDown = false;
 let initMouseX = null;
 let initMouseY = null;
+let initRotationX = 0;
+let initRotationY = 0;
+
+const parseRotationValues = () => {
+  let newCubeX = -30;
+  let newCubeY = -30;
+  let cubeTransform = document.getElementsByClassName('cube')[0].style.transform;
+  if (cubeTransform) {
+    let cubeY = cubeTransform.split(' ')[0];
+    let cubeX = cubeTransform.split(' ')[1];
+    newCubeY = cubeY.slice(8, cubeY.length - 4);
+    newCubeX = cubeX.slice(8, cubeX.length - 4);
+  }
+  return [newCubeY, newCubeX];
+}
 
 const onMouseDown = (e) => {
-    console.log((e.touches) ? true : false);
-    console.log(document.getElementsByClassName('cube')[0].style["transform"]);
-    console.log("isSliderClicked: ", isSliderClicked);
     let x = (e.touches) ? e.touches[0].clientX : e.clientX;
     let y = (e.touches) ? e.touches[0].clientY : e.clientY;
     initMouseX = x;
     initMouseY = y;
+    let initRotation = parseRotationValues();
+    initRotationY = initRotation[0];
+    initRotationX = initRotation[1];
     mouseIsDown = true;
 }
 
 const onMouseMoving = (e) => {
-  
-    let cubes = document.getElementsByClassName('cube');
-    for (let cube of cubes) {
-        if (mouseIsDown === true) {
-            let x = (e.touches) ? e.touches[0].clientX : e.clientX;
-            let y = (e.touches) ? e.touches[0].clientY : e.clientY;
-            let xRotate = (initMouseX + x).toString();
-            let yRotate = (initMouseY + y).toString();
-            let rotatePhrase = `rotateY(${xRotate}deg) rotateX(${yRotate}deg)`;
-            cube.style.transform = rotatePhrase;
-        }
-    }    
+  let x = (e.touches) ? e.touches[0].clientX : e.clientX;
+  let y = (e.touches) ? e.touches[0].clientY : e.clientY;
+  let cube = document.getElementsByClassName('cube')[0];
+    if (mouseIsDown === true) {
+      let yRotate = x - initMouseX + Number(initRotationY);
+      let xRotate = initMouseY - y + Number(initRotationX);
+      let rotatePhrase = `rotateY(${yRotate}deg) rotateX(${xRotate}deg)`;
+      cube.style.transform = rotatePhrase;   
+      console.log(rotatePhrase);
+          
+  }       
 }
 
 const onMouseUp = () => {
@@ -98,6 +116,7 @@ document.getElementById('slider').addEventListener('touchstart', mouseDownSlider
 document.getElementById('slider').addEventListener('touchend', mouseUpSlider);
 document.getElementById('slider').addEventListener('touchmove', adjustSize);
 document.getElementById('slider').addEventListener('click', changeDistance);
+document.getElementsByTagName('HTML')[0].addEventListener('click', showRotation);
 document.getElementsByTagName('HTML')[0].addEventListener('mousedown', onMouseDown);
 document.getElementsByTagName('HTML')[0].addEventListener('mousemove', onMouseMoving);
 document.getElementsByTagName('HTML')[0].addEventListener('mouseup', onMouseUp);
