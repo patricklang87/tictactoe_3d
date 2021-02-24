@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/tictactoe_3d/static/css/main.39b0a785.chunk.css",
-    "main.js": "/tictactoe_3d/static/js/main.6be2d200.chunk.js",
-    "main.js.map": "/tictactoe_3d/static/js/main.6be2d200.chunk.js.map",
+    "main.css": "/tictactoe_3d/static/css/main.ae6bcaf7.chunk.css",
+    "main.js": "/tictactoe_3d/static/js/main.c91b6c72.chunk.js",
+    "main.js.map": "/tictactoe_3d/static/js/main.c91b6c72.chunk.js.map",
     "runtime-main.js": "/tictactoe_3d/static/js/runtime-main.64a0dd87.js",
     "runtime-main.js.map": "/tictactoe_3d/static/js/runtime-main.64a0dd87.js.map",
-    "static/js/2.5b144445.chunk.js": "/tictactoe_3d/static/js/2.5b144445.chunk.js",
-    "static/js/2.5b144445.chunk.js.map": "/tictactoe_3d/static/js/2.5b144445.chunk.js.map",
+    "static/js/2.16437fa2.chunk.js": "/tictactoe_3d/static/js/2.16437fa2.chunk.js",
+    "static/js/2.16437fa2.chunk.js.map": "/tictactoe_3d/static/js/2.16437fa2.chunk.js.map",
     "static/js/3.70532c15.chunk.js": "/tictactoe_3d/static/js/3.70532c15.chunk.js",
     "static/js/3.70532c15.chunk.js.map": "/tictactoe_3d/static/js/3.70532c15.chunk.js.map",
     "index.html": "/tictactoe_3d/index.html",
-    "static/css/main.39b0a785.chunk.css.map": "/tictactoe_3d/static/css/main.39b0a785.chunk.css.map",
-    "static/js/2.5b144445.chunk.js.LICENSE.txt": "/tictactoe_3d/static/js/2.5b144445.chunk.js.LICENSE.txt"
+    "static/css/main.ae6bcaf7.chunk.css.map": "/tictactoe_3d/static/css/main.ae6bcaf7.chunk.css.map",
+    "static/js/2.16437fa2.chunk.js.LICENSE.txt": "/tictactoe_3d/static/js/2.16437fa2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.64a0dd87.js",
-    "static/js/2.5b144445.chunk.js",
-    "static/css/main.39b0a785.chunk.css",
-    "static/js/main.6be2d200.chunk.js"
+    "static/js/2.16437fa2.chunk.js",
+    "static/css/main.ae6bcaf7.chunk.css",
+    "static/js/main.c91b6c72.chunk.js"
   ]
 }
