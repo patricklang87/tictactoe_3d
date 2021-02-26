@@ -14,7 +14,7 @@ let initMouseY = null;
 let initRotationX = 0;
 let initRotationY = 0;
 
-const parseRotationValues = () => {
+export const parseRotationValues = () => {
   let newCubeX = -30;
   let newCubeY = -30;
   let cubeTransform = document.getElementsByClassName('cube')[0].style.transform;
@@ -135,3 +135,4 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+

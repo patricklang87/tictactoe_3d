@@ -1,4 +1,5 @@
 import './App.css';
+import { parseRotationValues } from '../index.js';
 import React from 'react';
 
 export class App extends React.Component {
@@ -9,6 +10,7 @@ export class App extends React.Component {
     this.checkFoWinner = this.checkForWinner.bind(this);
     this.acknowledgeWinner = this.acknowledgeWinner.bind(this);
     this.reset = this.reset.bind(this);
+    this.startWinningRotation = this.startWinningRotation.bind(this);
     this.state = {
       cubeState: [[[null, null, null], [null, null, null], [null, null, null]],
                   [[null, null, null], [null, null, null], [null, null, null]],
@@ -34,6 +36,7 @@ export class App extends React.Component {
       for (let row of board) {
           if (row[0] != null && row[0] === row[1] && row[0] === row[2]) {
             winner = this.acknowledgeWinner();
+            
             return winner;;
           }
       } 
@@ -87,8 +90,25 @@ export class App extends React.Component {
     let sides = document.getElementsByClassName('side');
     for (let side of sides) side.style.backgroundColor = "yellow";
     document.getElementsByTagName('BODY')[0].style.backgroundColor = "white";
+    document.getElementsByClassName('cube')[0].classList.remove('rotation');
+    // document.getElementsByTagName('HTML')[0].removeChild(document.getElementById('rotationCSS'));
     document.getElementsByClassName('reset')[0].style.visibility = "hidden";
   } 
+
+  startWinningRotation() {
+    let Ystart = parseRotationValues()[0];
+    let Xstart = parseRotationValues()[1];
+    var style = document.createElement('style');
+    style.id = "rotationCss";
+    let keyFrames = `
+        @keyframes loop {
+          from {transform: rotateX(${Xstart}deg) rotateY${Ystart}deg)}
+          to {transform: rotateX(${Xstart +360}deg) rotateY(${Ystart +360}deg)}
+        }`;
+    style.innerHTML = keyFrames;
+    document.getElementsByTagName('HTML')[0].append(style);
+    document.getElementsByClassName('cube')[0].classList.add('rotation');
+  }
 
   updateCube(z, y, x) {
     console.log("oldCube: ", this.state.cubeState);
@@ -97,7 +117,10 @@ export class App extends React.Component {
     newCube[z][y][x] = (this.state.player1IsNext) ? "player1" : "player2";
     console.log("newCube: ", newCube);
     let winner = this.checkFoWinner();
-    if (winner) document.getElementsByClassName('reset')[0].style.visibility = "visible";
+    if (winner) {
+      this.startWinningRotation();
+      document.getElementsByClassName('reset')[0].style.visibility = "visible";
+    }
     return newCube;
   }
 

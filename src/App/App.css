@@ -17,7 +17,7 @@
   position: relative;
   margin: auto;
   pointer-events: none;
-  transform: rotate(30deg);
+  transform: rotateX(-30deg) rotateY(-30deg);
 }
 
 
@@ -96,3 +96,7 @@
   transform: translateZ(25px) translateX(-25px) rotateY(-90deg);
 }
 
+
+.rotation {
+  animation: loop 10s linear infinite;
+}
